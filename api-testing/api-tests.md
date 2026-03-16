@@ -34,7 +34,7 @@ GET https://reqres.in/api/users?page=2
   ]
 }
 ```
-Проверки в Postman:
+**Проверки в Postman:**
 pm.test("Статус 200", function () {
     pm.response.to.have.status(200);
 });
@@ -52,13 +52,13 @@ pm.test("У пользователя есть email", function () {
     pm.expect(user).to.have.property("email");
     pm.expect(user.email).to.include("@");
 });
-Результат: ✅ Pass
+**Результат: ✅ Pass**
 
-2. Получение одного пользователя — GET
-Запрос:
+**2. Получение одного пользователя — GET**
+**Запрос:**
 GET https://reqres.in/api/users/2
 
-Ответ (200 OK):
+**Ответ (200 OK):**
 {
   "data": {
     "id": 2,
