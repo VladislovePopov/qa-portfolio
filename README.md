@@ -5,11 +5,11 @@
 Провожу API-тестирование, пишу SQL-запросы.
 
 ## Навыки и инструменты
-• Инструменты: Jira, TestRail, Test it, Charles Proxy, Fiddler, Docker.
-• Веб-тестирование: Chrome DevTools, работа с логами.
-• API: Postman, REST JSON, SOAP XML, Kafka.
-• Базы данных: SQL запросы в СУБД: MySQL, PostgreSQL.
-• Прочее: Понимание основ Java, HTML/CSS, Git, GitHub.
+- Инструменты: Jira, TestRail, Test it, Charles Proxy, Fiddler, Docker.
+- Веб-тестирование: Chrome DevTools, работа с логами.
+- API: Postman, REST JSON, SOAP XML, Kafka.
+- Базы данных: SQL запросы в СУБД: MySQL, PostgreSQL.
+- Прочее: Понимание основ Java, HTML/CSS, Git, GitHub.
 
 ## Учебный проект: Интернет-магазин «ShopOnline»
 Учебный проект — тестирование веб-приложения интернет-магазина электроники.
@@ -25,5 +25,5 @@
 
 ## Контакты
 
-• Email: windbow78@gmail.com
-• Telegram: @popovladislove
+- Email: windbow78@gmail.com
+- Telegram: @popovladislove
