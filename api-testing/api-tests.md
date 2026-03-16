@@ -117,6 +117,7 @@ pm.test("Тело ответа пустое", function () {
 **Запрос:**
 
 POST https://reqres.in/api/users
+
 Content-Type: application/json
 
 {
@@ -156,6 +157,7 @@ pm.test("Есть id и createdAt", function () {
 **Запрос:**
 
 POST https://reqres.in/api/login
+
 Content-Type: application/json
 
 {
@@ -186,6 +188,7 @@ pm.test("Токен получен", function () {
 **Запрос:**
 
 POST https://reqres.in/api/login
+
 Content-Type: application/json
 
 {
