@@ -59,3 +59,54 @@ JOIN products p ON ci.product_id = p.id
 WHERE u.username = 'standard_user'
 ORDER BY ci.added_at DESC;
 ```
+## 4. Сумма заказа — проверка расчёта
+**Убедимся что total в заказе равен сумме товаров**
+```SQL
+SELECT
+    o.id AS order_id,
+    o.total AS сохранённая_сумма,
+    SUM(oi.quantity * oi.price) AS посчитанная_сумма,
+    CASE
+        WHEN o.total = SUM(oi.quantity * oi.price)
+        THEN 'OK'
+        ELSE 'ОШИБКА'
+    END AS проверка
+FROM orders o
+JOIN order_items oi ON o.id = oi.order_id
+GROUP BY o.id, o.total;
+```
+## 5. Заблокированные пользователи
+**Проверяем что locked_out_user действительно заблокирован**
+```SQL
+SELECT username, is_locked
+FROM users
+WHERE is_locked = true;
+```
+## 6. Самый дорогой товар
+**Проверяем сортировку «Price (high to low)»**
+```SQL
+SELECT name, price
+FROM products
+ORDER BY price DESC
+LIMIT 1;
+```
+## 7. Количество заказов по каждому пользователю
+**Аналитика тестовых данных**
+```SQL
+SELECT
+    u.username,
+    COUNT(o.id) AS количество_заказов,
+    COALESCE(SUM(o.total), 0) AS общая_сумма
+FROM users u
+LEFT JOIN orders o ON u.id = o.user_id
+GROUP BY u.username
+ORDER BY количество_заказов DESC;
+```
+## 8. Товары которые ни разу не заказывали
+**Проверка данных**
+```SQL
+SELECT p.name, p.price
+FROM products p
+LEFT JOIN order_items oi ON p.id = oi.product_id
+WHERE oi.id IS NULL;
+```
