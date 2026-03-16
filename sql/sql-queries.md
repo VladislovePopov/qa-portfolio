@@ -11,7 +11,9 @@
 ---
 
 ## Схема таблиц
-|--------|---------------------------------------------------------------|
+
+|        |                                                               |
+| ------ | ------------------------------------------------------------- |
 | users: | id, username, password_hash, user_type, is_locked, created_at |
 | products: | id, name, description, price, image_url |
 | cart_items: | id, user_id, product_id, quantity, added_at |
