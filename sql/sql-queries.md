@@ -42,3 +42,20 @@ ORDER BY id;
 | 4	| performance_glitch_user |	glitch |	false |
 | 5	| error_user |	error |	false |
 | 6	| visual_user | visual |	false |
+
+## 3. Товары в корзине конкретного пользователя
+
+** Проверяем что товар добавился **
+```SQL
+SELECT
+    u.username,
+    p.name AS product,
+    p.price,
+    ci.quantity,
+    ci.added_at
+FROM cart_items ci
+JOIN users u ON ci.user_id = u.id
+JOIN products p ON ci.product_id = p.id
+WHERE u.username = 'standard_user'
+ORDER BY ci.added_at DESC;
+```
