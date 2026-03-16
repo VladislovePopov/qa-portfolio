@@ -35,6 +35,7 @@ GET https://reqres.in/api/users?page=2
 }
 ```
 **Проверки в Postman:**
+```JavaScript
 pm.test("Статус 200", function () {
     pm.response.to.have.status(200);
 });
@@ -52,13 +53,15 @@ pm.test("У пользователя есть email", function () {
     pm.expect(user).to.have.property("email");
     pm.expect(user.email).to.include("@");
 });
+```
 **Результат: ✅ Pass**
 
-**2. Получение одного пользователя — GET**
+##2. Получение одного пользователя — GET
 **Запрос:**
 GET https://reqres.in/api/users/2
 
 **Ответ (200 OK):**
+```json
 {
   "data": {
     "id": 2,
@@ -67,7 +70,9 @@ GET https://reqres.in/api/users/2
     "last_name": "Weaver"
   }
 }
+```
 Проверки:
+```JavaScript
 pm.test("Статус 200", function () {
     pm.response.to.have.status(200);
 });
@@ -79,15 +84,19 @@ pm.test("ID совпадает с запрошенным", function () {
 pm.test("Имя — Janet", function () {
     pm.expect(pm.response.json().data.first_name).to.eql("Janet");
 });
-Результат: ✅ Pass
+```
+**Результат: ✅ Pass**
 
-3. Несуществующий пользователь — GET
-Запрос:
+##3. Несуществующий пользователь — GET
+**Запрос:**
 GET https://reqres.in/api/users/999
 
-Ответ (404 Not Found):
+**Ответ (404 Not Found):**
+```json
 {}
+```
 Проверки:
+```JavaScript
 pm.test("Статус 404", function () {
     pm.response.to.have.status(404);
 });
@@ -96,10 +105,11 @@ pm.test("Тело ответа пустое", function () {
     var data = pm.response.json();
     pm.expect(Object.keys(data).length).to.eql(0);
 });
-Результат: ✅ Pass
+```
+**Результат: ✅ Pass**
 
-4. Создание пользователя — POST
-Запрос:
+##4. Создание пользователя — POST
+**Запрос:**
 POST https://reqres.in/api/users
 Content-Type: application/json
 
@@ -108,18 +118,34 @@ Content-Type: application/json
   "job": "QA Engineer"
 }
 
-Ответ (201 Created):
+**Ответ (201 Created):**
+```json
 {
   "name": "Ivan Testov",
   "job": "QA Engineer",
   "id": "312",
   "createdAt": "2025-01-28T14:22:31.789Z"
 }
-Проверки:
+```
+**Проверки:**
+```JavaScript
+pm.test("Статус 201", function () {
+    pm.response.to.have.status(201);
+});
 
-Результат: ✅ Pass
+pm.test("Имя совпадает с отправленным", function () {
+    pm.expect(pm.response.json().name).to.eql("Ivan Testov");
+});
 
-5. Авторизация — POST (успешная)
+pm.test("Есть id и createdAt", function () {
+    var data = pm.response.json();
+    pm.expect(data).to.have.property("id");
+    pm.expect(data).to.have.property("createdAt");
+});
+```
+**Результат: ✅ Pass**
+
+##5. Авторизация — POST (успешная)
 Запрос:
 POST https://reqres.in/api/login
 Content-Type: application/json
@@ -129,10 +155,13 @@ Content-Type: application/json
   "password": "cityslicka"
 }
 Ответ (200):
+```json
 {
   "token": "QpwL5tke4Pnpja7X4"
 }
+```
 Проверки:
+```
 pm.test("Статус 200", function () {
     pm.response.to.have.status(200);
 });
@@ -141,10 +170,11 @@ pm.test("Токен получен", function () {
     pm.expect(pm.response.json()).to.have.property("token");
     pm.expect(pm.response.json().token.length).to.be.above(0);
 });
+```
 Результат: ✅ Pass
 
-6. Авторизация — POST (без пароля)
-Запрос:
+##6. Авторизация — POST (без пароля)
+**Запрос:**
 POST https://reqres.in/api/login
 Content-Type: application/json
 
@@ -152,10 +182,13 @@ Content-Type: application/json
   "email": "eve.holt@reqres.in"
 }
 Ответ (400):
+```json
 {
   "error": "Missing password"
 }
-Проверки:
+```
+**Проверки:**
+```
 pm.test("Статус 400", function () {
     pm.response.to.have.status(400);
 });
@@ -163,14 +196,16 @@ pm.test("Статус 400", function () {
 pm.test("Ошибка — Missing password", function () {
     pm.expect(pm.response.json().error).to.eql("Missing password");
 });
-Результат: ✅ Pass
+```
+**Результат: ✅ Pass**
 
-7. Удаление пользователя — DELETE
-Запрос:
+##7. Удаление пользователя — DELETE
+**Запрос:**
 DELETE https://reqres.in/api/users/2
-Ответ:
+**Ответ:**
 204 No Content (пустое тело)
-Проверки:
+**Проверки:**
+```
 pm.test("Статус 204", function () {
     pm.response.to.have.status(204);
 });
@@ -178,7 +213,8 @@ pm.test("Статус 204", function () {
 pm.test("Тело ответа пустое", function () {
     pm.expect(pm.response.text()).to.eql("");
 });
-Результат: ✅ Pass
+```
+**Результат: ✅ Pass**
 
 Сводка
 №	Метод	URL	Описание	Код	Результат
