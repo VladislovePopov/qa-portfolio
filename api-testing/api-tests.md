@@ -56,7 +56,7 @@ pm.test("У пользователя есть email", function () {
 ```
 **Результат: ✅ Pass**
 
-##2. Получение одного пользователя — GET
+## 2. Получение одного пользователя — GET
 **Запрос:**
 GET https://reqres.in/api/users/2
 
@@ -87,7 +87,7 @@ pm.test("Имя — Janet", function () {
 ```
 **Результат: ✅ Pass**
 
-##3. Несуществующий пользователь — GET
+## 3. Несуществующий пользователь — GET
 **Запрос:**
 GET https://reqres.in/api/users/999
 
@@ -108,7 +108,7 @@ pm.test("Тело ответа пустое", function () {
 ```
 **Результат: ✅ Pass**
 
-##4. Создание пользователя — POST
+## 4. Создание пользователя — POST
 **Запрос:**
 POST https://reqres.in/api/users
 Content-Type: application/json
@@ -145,7 +145,7 @@ pm.test("Есть id и createdAt", function () {
 ```
 **Результат: ✅ Pass**
 
-##5. Авторизация — POST (успешная)
+## 5. Авторизация — POST (успешная)
 Запрос:
 POST https://reqres.in/api/login
 Content-Type: application/json
@@ -173,7 +173,7 @@ pm.test("Токен получен", function () {
 ```
 Результат: ✅ Pass
 
-##6. Авторизация — POST (без пароля)
+## 6. Авторизация — POST (без пароля)
 **Запрос:**
 POST https://reqres.in/api/login
 Content-Type: application/json
@@ -199,7 +199,7 @@ pm.test("Ошибка — Missing password", function () {
 ```
 **Результат: ✅ Pass**
 
-##7. Удаление пользователя — DELETE
+## 7. Удаление пользователя — DELETE
 **Запрос:**
 DELETE https://reqres.in/api/users/2
 **Ответ:**
