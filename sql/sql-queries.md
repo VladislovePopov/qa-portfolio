@@ -11,7 +11,7 @@
 ---
 
 ## Схема таблиц
-
+| Таблица | Атрибуты |
 | ------ | ------------------------------------------------------------- |
 | users: | id, username, password_hash, user_type, is_locked, created_at |
 | products: | id, name, description, price, image_url |
