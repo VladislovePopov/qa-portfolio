@@ -84,7 +84,7 @@ Swag Labs — учебный интернет-магазин от Sauce Labs.
 |----------|----------|
 | URL | https://www.saucedemo.com |
 | ОС | Windows 11 |
-| Браузер | Chrome 120 |
+| Браузер | Chrome 145 |
 | Разрешение | 1920×1080 |
 | Инструменты | Chrome DevTools, Postman |
 
