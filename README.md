@@ -12,7 +12,7 @@
 - Базы данных: SQL запросы в СУБД: MySQL, PostgreSQL.
 - Прочее: Понимание основ Java, HTML/CSS, Git, GitHub.
 
-## [Сертификат](Certificate.pdf)
+[Сертификат](Certificate.pdf)
 
 ## Контакты
 
